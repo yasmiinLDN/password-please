@@ -1,79 +1,71 @@
-# Module 5 Challenge: Password Generator
+# Console Financial Analysis: Module 4 Challenge
 
-## Overview
+## Description 
 
-This week’s challenge requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
+This project involved employing a number of javascript functions and concepts to perform calculatiions based on a set of values in an array.
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of Password Special Characters from the OWASP Foundation](https://www.owasp.org/index.php/Password_special_characters).
+## Installation
+<br>
 
-## Instructions
+1. Navigate to the repository using the link below: 
 
-The following image shows the web application's appearance and functionality:
+```sh
+   https://github.com/yasmiinLDN/yasmiin-make-a-pass
+   ```
+<br>
 
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+2. Click the green "< > Code" button to copy the SSH key related to the repository
+<br>
+<br>
+<br>
+3. Clone the repository into your local machine using the below command entered into the command line (assuming you have set up your SSH connection correctly to connect your GitHub account to your local machine):
+
+```sh
+   git clone git@github.com:yasmiinLDN/yasmiin-make-a-pass.git
+   ```
+<br>
 
 
-* Generate a password when the button is clicked
-  * Present a series of prompts for password criteria
+## Usage 
+
+Below shows the layout of the password generator:
+
+![screenshot of console](challenge-screenshot.png)
+
+
+## Credits
+
+This document was created with assistance from the following websites:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+<br>
+
+
+## License
+
+This document is distributed under the MIT License. Please see LICENSE.txt for more information.
+
+## Badges
+
+| Javascript            | ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+<br>
+| HTML5            | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)      
+
+
+## Features
+
+### Main console contents
+  * Password prompts
     * Length of password
-      * At least 8 characters but no more than 128.
     * Character types
       * Lowercase
       * Uppercase
       * Numeric
-      * Special characters ($@%&*, etc)
-  * Code should validate for each input and at least one character type should be selected
-  * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+      * Special characters ($@%&*, etc.)
 
-## Grading Requirements
+* Once the prompts are answered, the password is generated and displayed.
 
-This challenge is graded based on the following criteria: 
+## Contributing
 
-### Technical Acceptance Criteria: 40%
+![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)  
 
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
