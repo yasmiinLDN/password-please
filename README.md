@@ -1,8 +1,8 @@
-# Console Financial Analysis: Module 4 Challenge
+# Password Generator: Module 5 Challenge
 
 ## Description 
 
-This project involved employing a number of javascript functions and concepts to perform calculatiions based on a set of values in an array.
+This project involved employing a number of javascript functions and concepts to create a password generator.
 
 ## Installation
 <br>
