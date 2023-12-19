@@ -116,6 +116,11 @@ const generatedPassword = '';
 
 // STEP --  Function to prompt user for password options
 function getPasswordOptions() {
+  var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")))
+  if (passLength.length > 128 || passLength.length < 8) {
+    alert("Your password is not the correct number of characters - please try again")
+  }
+  else getPasswordOptions()
   // Prompt for password length
   // At least 8 characters, no more than 128 characters
   // Conditional to check that the number that was entered is in range
