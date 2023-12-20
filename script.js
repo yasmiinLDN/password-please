@@ -29,54 +29,59 @@ var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K
 
 ////////////////////////////////////////////////////////////////////////////        MY ATTEMPT BELOW          ////////////////////////////////////////////////////////////////////////////////////// 
 
-// var generatedPassword = [];
+const generatedPassword = [];
 
-// // not sure about above naming
+function getPasswordOptions() {
 
+  // ask all the right questions
+  var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
 
-// function getPasswordOptions() {
+  if (passLength.length >= 128 || passLength.length <= 8) {
+    // CHECKS
 
-//   // ask all the right questions
-//   var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
-
-
-//   if (passLength.length > 128 || passLength.length < 8) {
-//     // console.log(passLength);
-//     // // CHECKS
-
-//     var sChar = (confirm("do you want special characters?"));
-//     var nChar = (confirm("do you want numeric characters?"));
-//     var lChar = (confirm("do you want lower-cased characters?"));
-//     var uChar = (confirm("do you want upper-cased characters?"));
-
-//     if (sChar == true || nChar == true || lChar == true || uChar == true) {
-//       if (sChar == true) { generatedPassword += specialCharacters }
-//       if (nChar == true) { generatedPassword += numericCharacters }
-//       if (lChar == true) { generatedPassword += lowerCasedCharacters }
-//       if (uChar == true) { generatedPassword += upperCasedCharacters }
-//     }
-//     // CHECKS
-//   }
-
-// }
+        //prompts to select character type(s)
+    var sChar = Boolean((confirm("do you want special characters? Click 'okay' to confirm")));
+    var nChar = Boolean((confirm("do you want numeric characters? Click 'okay' to confirm")));
+    var lChar = Boolean((confirm("do you want lower-cased characters? Click 'okay' to confirm")));
+    var uChar = Boolean((confirm("do you want upper-cased characters? Click 'okay' to confirm")));
 
 
-// console.log(generatedPassword);
-
-var charOptions = specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
-console.log(charOptions);
-
-var password = "";
-
-var passwordLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
-
-
-for (let i = 0; i <= passwordLength; i++) {
-  var randomNum = Math.floor(Math.random() * charOptions.length);
-  password += charOptions.slice(randomNum, randomNum + 1);
+    if (sChar == true || nChar == true || lChar == true || uChar == true) {
+      if (sChar == true) { generatedPassword += specialCharacters }
+      if (nChar == true) { generatedPassword += numericCharacters }
+      if (lChar == true) { generatedPassword += lowerCasedCharacters }
+      if (uChar == true) { generatedPassword += upperCasedCharacters }
+    }
+    // CHECKS
+    else {
+      alert("Please select at least one character type");
+    }
+  }
+  else {
+    alert("Please enter a value between 8 and 128");
+  }
+console.log(generatedPassword);
 }
 
-console.log(password);
+// console.log(getPasswordOptions());
+
+
+///// BELOW GERNERATES PASSWORD WITHOUT PROMPTING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- TRYING PROMPT ABOVE
+
+// var charOptions = specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
+// console.log(charOptions);
+
+// var password = "";
+
+// var passwordLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
+
+
+// for (let i = 0; i <= passwordLength; i++) {
+//   var randomNum = Math.floor(Math.random() * charOptions.length);
+//   password += charOptions.slice(randomNum, randomNum + 1);
+// }
+
+// console.log(password);
 
 
 // STEP --  Add event listener to generate button
