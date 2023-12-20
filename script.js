@@ -30,8 +30,9 @@ var upperCasedCharacters = ['A','B','C','D','E','F', 'G','H','I','J','K', 'L', '
 
 ///////////////////////////////////////////////////////////////////////////////// 
 
-const charOptions = [];
-const generatedPassword = '';
+const charOptions_ = [];
+const generatedPassword_ = '';
+// ATTEMPT --> specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
 // You can store the generatedPassword as a string and concat each character OR
 // as an array and push each character, then join once you have enough characters
 
@@ -51,7 +52,7 @@ function getPasswordOptions() {
 
   }
 
-  // (specialCharacters[i] || numericCharacters[i] || lowerCasedCharacters[i] || upperCasedCharacters[i])
+  //  (specialCharacters[i] || numericCharacters[i] || lowerCasedCharacters[i] || upperCasedCharacters[i])
 
 
     // VALIDATION -- should validate for each input and at least one character type should be selected. 
@@ -124,3 +125,67 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 // addEventListener --> tells the code to listen for an event
+
+
+///////
+
+// Array of special characters to be included in password
+var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+
+// Array of numeric characters to be included in password
+var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+// Array of lowercase characters to be included in password
+var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+// Array of uppercase characters to be included in password
+var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+
+////////////////////////////////////////////////////////////////////////////        MY ATTEMPT BELOW          ////////////////////////////////////////////////////////////////////////////////////// 
+
+var generatedPassword = [];
+
+// not sure about above naming
+
+
+function getPasswordOptions() {
+
+  // ask all the right questions
+  var passwordLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
+
+
+  if (passLength.length > 128 || passLength.length < 8) {
+    console.log(passLength);
+    // CHECKS
+
+    var sChar = (confirm("do you want special characters?"));
+    var nChar = (confirm("do you want numeric characters?"));
+    var lChar = (confirm("do you want lower-cased characters?"));
+    var uChar = (confirm("do you want upper-cased characters?"));
+
+    if (sChar == true || nChar == true || lChar == true || uChar == true) {
+      if (sChar == true) { generatedPassword += specialCharacters }
+      if (nChar == true) { generatedPassword += numericCharacters }
+      if (lChar == true) { generatedPassword += lowerCasedCharacters }
+      if (uChar == true) { generatedPassword += upperCasedCharacters }
+    }
+    console.log(generatedPassword);
+    // CHECKS
+  }
+
+
+
+}
+
+var charOptions = specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
+console.log(charOptions);
+
+var password = "";
+
+for (let i = 0; i <= passwordLength; i++) {
+  var randomNum = Math.floor(Math.random() * charOptions.length);
+  password += charOptions.slice(randomNum, randomNum + 1);
+}
+
+console.log(password);
