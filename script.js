@@ -17,94 +17,16 @@
 ///////////////////////////////////////////////////////////////////////////////// STARTER CODE BELOWv / ///////////////////////////////////////////////////////////////////////////////////
 
 // Array of special characters to be included in password
-var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\',
-  '/',
-  "'",
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ',',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
-  '.'
-];
+var specialCharacters = [ '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
 
 // Array of numeric characters to be included in password
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
-];
+var lowerCasedCharacters = [ 'a', 'b','c', 'd','e','f','g', 'h','i', 'j','k','l','m', 'n','o','p', 'q','r', 's', 't', 'u', 'v','w', 'x','y','z'];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
-];
+var upperCasedCharacters = ['A','B','C','D','E','F', 'G','H','I','J','K', 'L', 'M','N','O','P', 'Q', 'R', 'S', 'T','U','V','W','X','Y', 'Z'];
 
 ///////////////////////////////////////////////////////////////////////////////// 
 
@@ -124,6 +46,14 @@ function getPasswordOptions() {
   // Prompt for password length
   // At least 8 characters, no more than 128 characters
   // Conditional to check that the number that was entered is in range
+
+  for(let i=0; i < passLength.length; i++) {
+
+  }
+
+  // (specialCharacters[i] || numericCharacters[i] || lowerCasedCharacters[i] || upperCasedCharacters[i])
+
+
     // VALIDATION -- should validate for each input and at least one character type should be selected. 
   // Prompts store data as strings, so need to parse into a number
   // If the user's input is out of range, either return out of the function or call the function again
