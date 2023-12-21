@@ -10,6 +10,11 @@ var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
+var specialChars = specialCharacters.join('');
+var numericChars = numericCharacters.join('');
+var lowerCasedChars = lowerCasedCharacters.join('');
+var upperCasedChars = upperCasedCharacters.join('');
+
 
 ////////////////////////////////////////////////////////        MY ATTEMPT BELOW          //////////////////////////////////////////////////////// 
 
@@ -17,47 +22,47 @@ var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K
 // STEP 1  --  Function to prompt user for password character length
 
 // Function expression
-  var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
+var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
 
 
-var checkPass = function() {
-      if (pass >= 8 && pass <= 128) {
-        return pass;
-      } else {
-          confirm("Your password is not the correct number of characters - please try again");
-          checkPass(); // Call function here to restart
-      }
-  };
+var checkPass = function () {
+  if (pass >= 8 && pass <= 128) {
+    return pass;
+  } else {
+    confirm("Your password is not the correct number of characters - please try again");
+    checkPass(); // Call function here to restart
+  }
+};
 
-  console.log(checkPass());
+console.log(checkPass());
 //   // check
 
 // STEP 2 - Function to prompt user for password characters
 
 var genChars = [];
 
-var sChar = Boolean((confirm("do you want special characters? Click 'okay' to confirm")));
-var nChar = Boolean((confirm("do you want numeric characters? Click 'okay' to confirm")));
-var lChar = Boolean((confirm("do you want lower-cased characters? Click 'okay' to confirm")));
-var uChar = Boolean((confirm("do you want upper-cased characters? Click 'okay' to confirm")));
+var sChar = Boolean((confirm("Do you want SPECIAL characters? Click 'okay' for 'yes' or cancel for 'no'")));
+var nChar = Boolean((confirm("Do you want NUMERIC characters? Click 'okay' for 'yes' or cancel for 'no'")));
+var lChar = Boolean((confirm("Do you want LOWER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
+var uChar = Boolean((confirm("Do you want UPPER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
 
-  if (sChar == true || nChar == true || lChar == true || uChar == true) {
-    if (sChar == true) {genChars += specialCharacters }
-    if (nChar == true) {genChars += numericCharacters }
-    if (lChar == true) {genChars += lowerCasedCharacters }
-    if (uChar == true) {genChars += upperCasedCharacters }
-  }
+if (sChar == true || nChar == true || lChar == true || uChar == true) {
+  if (sChar == true) { genChars += specialChars }
+  if (nChar == true) { genChars += numericChars }
+  if (lChar == true) { genChars += lowerCasedChars }
+  if (uChar == true) { genChars += upperCasedChars }
+}
 
-  else {
-    alert("Please select at least one character type");
-  }  
-  
-  console.log(genChars);
-  //check
+else {
+  alert("Please select at least one character type");
+}
+
+console.log(genChars);
+//check
 
 
-  /// ISSUE --> genChars is including the commas in between the elements in each array!
-  // FIX (maybe) = ask questions above then concatenate the results! --> and then 
+/// ISSUE --> genChars is including the commas in between the elements in each array!
+// FIX (maybe) = ask questions above then concatenate the results! --> and then 
 
 
 
@@ -77,9 +82,9 @@ for (let i = 0; i <= passLength; i++) {
 console.log(`Your password is ${password}`);
 
 
-  /// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE 
+/// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE 
 
-  //// !!!!! BELOW GETS THE CHAR OPTIONS WITHOUT THE COMMAS ---> FIGURE OUT HOW TO DO THIS WITH THE ABOVE
+//// !!!!! BELOW GETS THE CHAR OPTIONS WITHOUT THE COMMAS ---> FIGURE OUT HOW TO DO THIS WITH THE ABOVE
 
 //   var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
 
