@@ -10,73 +10,66 @@ var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////                   MY ATTEMPT BELOW                   /////////////////////////////////////// 
+
+////////////////////////////////////////////////////////        MY ATTEMPT BELOW          //////////////////////////////////////////////////////// 
 
 
 // STEP 1  --  Function to prompt user for password character length
 
-const pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
+// Function expression
+  var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
 
-function checkPass() {
-  if (pass >= 8 && pass <= 128) {
-    // STEP 2 - Function to prompt user for password characters
 
-    var genChars = [];
+var checkPass = function() {
+      if (pass >= 8 && pass <= 128) {
+        return pass;
+      } else {
+          confirm("Your password is not the correct number of characters - please try again");
+          checkPass(); // Call function here to restart
+      }
+  };
 
-    var sChar = Boolean((confirm("do you want special characters? Click 'okay' to confirm")));
-    var nChar = Boolean((confirm("do you want numeric characters? Click 'okay' to confirm")));
-    var lChar = Boolean((confirm("do you want lower-cased characters? Click 'okay' to confirm")));
-    var uChar = Boolean((confirm("do you want upper-cased characters? Click 'okay' to confirm")));
+  console.log(checkPass());
+  // check
 
-    if (sChar == true || nChar == true || lChar == true || uChar == true) {
-      if (sChar == true) { genChars += specialCharacters }
-      if (nChar == true) { genChars += numericCharacters }
-      if (lChar == true) { genChars += lowerCasedCharacters }
-      if (uChar == true) { genChars += upperCasedCharacters }
-    }
-    else {
-      alert("Please select at least one character type");
-      checkPass(); // Call function here
-    }
+// STEP 2 - Function to prompt user for password characters
+
+var genChars = [];
+
+var sChar = Boolean((confirm("do you want special characters? Click 'okay' to confirm")));
+var nChar = Boolean((confirm("do you want numeric characters? Click 'okay' to confirm")));
+var lChar = Boolean((confirm("do you want lower-cased characters? Click 'okay' to confirm")));
+var uChar = Boolean((confirm("do you want upper-cased characters? Click 'okay' to confirm")));
+
+  if (sChar == true || nChar == true || lChar == true || uChar == true) {
+    if (sChar == true) {genChars += specialCharacters }
+    if (nChar == true) {genChars += numericCharacters }
+    if (lChar == true) {genChars += lowerCasedCharacters }
+    if (uChar == true) {genChars += upperCasedCharacters }
   }
+
   else {
-    confirm("Your password is not the correct number of characters - please try again");
-    checkPass(); // Call function here
-  }
+    alert("Please select at least one character type");
+  }  
+  
+  console.log(genChars);
+  //check
 
-  var passLength = pass;
-  var charOptions = genChars;
-  var password = "";
 
-  for (let i = 0; i < passLength; i++) {
-    var randomNum = Math.floor(Math.random() * charOptions.length);
-    password += charOptions.slice(randomNum, randomNum + 1);
-  }
+  /// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE
 
+var passLength = checkPass();
+var charOptions = genChars;
+var password = "";
+
+
+for (let i = 0; i <= passLength; i++) {
+  var randomNum = Math.floor(Math.random() * charOptions.length);
+  password += charOptions.slice(randomNum, randomNum + 1);
 }
-  console.log(`Your password is ${checkPass()}`);
 
 
-/// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE
-
-// var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
-
-
-// var charOptions = specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
-
-// var password = "";
-
-
-
-
-// for (let i = 0; i < passLength; i++) {
-//   var randomNum = Math.floor(Math.random() * charOptions.length);
-//   password += charOptions.slice(randomNum, randomNum + 1);
-// }
-
-
-// console.log(`Your password is ${password}`);
+console.log(`Your password is ${password}`);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
