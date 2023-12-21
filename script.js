@@ -54,6 +54,7 @@ var uChar = Boolean((confirm("do you want upper-cased characters? Click 'okay' t
   
   console.log(genChars);
   //check
+  /// ISSUE --> genChars is including the commas in between the elements in each array!
 
 
   /// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE
