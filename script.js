@@ -16,7 +16,7 @@ var lowerCasedChars = lowerCasedCharacters.join('');
 var upperCasedChars = upperCasedCharacters.join('');
 
 
-////////////////////////////////////////////////////////        MY ATTEMPT BELOW          //////////////////////////////////////////////////////// 
+/////////////////////////////////////////        MY ATTEMPT BELOW          ///////////////////////////////////////// 
 
 
 // STEP 1  --  Function to prompt user for password character length
@@ -54,19 +54,14 @@ if (sChar == true || nChar == true || lChar == true || uChar == true) {
 }
 
 else {
-  alert("Please select at least one character type");
+  confirm("Please select at least one character type");
+  checkPass(); // Call function here to restart
 }
 
 console.log(genChars);
 //check
 
-
-/// ISSUE --> genChars is including the commas in between the elements in each array!
-// FIX (maybe) = ask questions above then concatenate the results! --> and then 
-
-
-
-/// PRODUCE PASSWOORD BELOW
+/// Step 3 - PRODUCE PASSWOORD BELOW
 
 var passLength = checkPass();
 var charOptions = genChars;
@@ -80,29 +75,6 @@ for (let i = 0; i <= passLength; i++) {
 
 
 console.log(`Your password is ${password}`);
-
-
-/// BELOW GERNERATES PASSWORD WITHOUT PROMPTING FOR CHARACTER TYPE OR ANYTHING - CONCATENATED THE CHARACTERS ABOVE WITHOUT PROMPTING -- WILL REPLACE 'passLength' AND  'charOptions' WITH ABOVE 
-
-//// !!!!! BELOW GETS THE CHAR OPTIONS WITHOUT THE COMMAS ---> FIGURE OUT HOW TO DO THIS WITH THE ABOVE
-
-//   var passLength = (parseInt(prompt("Please input the password character length you want (8-128)")));
-
-
-// var charOptions = specialCharacters.concat(numericCharacters).concat(lowerCasedCharacters).concat(upperCasedCharacters);
-
-// var password = "";
-
-
-
-
-// for (let i = 0; i < passLength; i++) {
-//   var randomNum = Math.floor(Math.random() * charOptions.length);
-//   password += charOptions.slice(randomNum, randomNum + 1);
-// }
-
-
-// console.log(`Your password is ${password}`);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
