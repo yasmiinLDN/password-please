@@ -76,22 +76,26 @@ for (let i = 0; i <= passLength; i++) {
 
 console.log(`Your password is ${password}`);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// // STEP -- Write password to the #password input
+// STEP 4 -- Write password to the #password input
 // function writePassword() {
-//   var password = generatePassword();
 //   // HINT --> you're going to need to return something out of the generate password function
 //   var passwordText = document.querySelector('#password');
 
 //   passwordText.value = password;
 // }
 
-// // based on the loop above, whatever is returned from the generate password function goes into the "password" variable. The "password" variable is connected to the HTML id "password" using the query selector.
 
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-// // STEP --  Add event listener to generate button
-// generateBtn.addEventListener('click', writePassword);
+// based on the loop above, whatever is returned from the generate password function goes into the "password" variable. The "password" variable is connected to the HTML id "password" using the query selector.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+// // STEP 5 --  Add event listener to generate button
+
+// const generateBtn = document.getElementsByClassName("btn")
+
+// generateBtn.addEventListener("click", writePassword);
 
 // // addEventListener --> tells the code to listen for an event
