@@ -24,6 +24,7 @@ var upperCasedChars = upperCasedCharacters.join('');
 
 
 var checkPass = function () {
+  // change - added var pass into the function so that it asks the prompt again if the answer is wrong
   var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
   if (pass >= 8 && pass <= 128) {
     return pass;
@@ -56,7 +57,7 @@ var checkChars = function () {
 
   else if (sChar == false && nChar == false && lChar == false && uChar == false) {
     confirm("Please select at least one character type");
-    return checkChars();
+    return checkChars();  // Call function here to restart
   }
 }
 
@@ -82,7 +83,8 @@ function writePassword() {
   }
 
 
-  console.log(`Your password is ${password}`);
+  // console.log(`Your password is ${password}`);
+  // check
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -90,15 +92,13 @@ function writePassword() {
 
 
 
-// based on the loop above, whatever is returned from the generate password function goes into the "password" variable. The "password" variable is connected to the HTML id "password" using the query selector.
+// based on the loop above, whatever is returned from the write password function goes into the "password" variable. The "password" variable is connected to the HTML id "password" using the query selector.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-// STEP 5 --  Add event listener to generate button
+// STEP 4 --  Add event listener to generate button
 
 const generateBtn = document.getElementById("generate");
-
-
 
 generateBtn.addEventListener("click", writePassword);
 
