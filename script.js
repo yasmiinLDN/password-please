@@ -21,67 +21,68 @@ var upperCasedChars = upperCasedCharacters.join('');
 
 // STEP 1  --  Function to prompt user for password character length
 
-// Function expression
-var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
 
 
 var checkPass = function () {
+  var pass = (parseInt(prompt("Please input the password character length you want (8-128)")));
   if (pass >= 8 && pass <= 128) {
     return pass;
   } else {
     confirm("Your password is not the correct number of characters - please try again");
-    checkPass(); // Call function here to restart
+    return checkPass(); // Call function here to restart
   }
 };
 
-console.log(checkPass());
-//   // check
+// console.log(checkPass());
 
 // STEP 2 - Function to prompt user for password characters
 
-var genChars = [];
 
-var sChar = Boolean((confirm("Do you want SPECIAL characters? Click 'okay' for 'yes' or cancel for 'no'")));
-var nChar = Boolean((confirm("Do you want NUMERIC characters? Click 'okay' for 'yes' or cancel for 'no'")));
-var lChar = Boolean((confirm("Do you want LOWER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
-var uChar = Boolean((confirm("Do you want UPPER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
+var checkChars = function () {
+  var genChars = '';
 
-if (sChar == true || nChar == true || lChar == true || uChar == true) {
-  if (sChar == true) { genChars += specialChars }
-  if (nChar == true) { genChars += numericChars }
-  if (lChar == true) { genChars += lowerCasedChars }
-  if (uChar == true) { genChars += upperCasedChars }
-}
+  var sChar = Boolean((confirm("Do you want SPECIAL characters? Click 'okay' for 'yes' or cancel for 'no'")));
+  var nChar = Boolean((confirm("Do you want NUMERIC characters? Click 'okay' for 'yes' or cancel for 'no'")));
+  var lChar = Boolean((confirm("Do you want LOWER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
+  var uChar = Boolean((confirm("Do you want UPPER-CASED characters? Click 'okay' for 'yes' or cancel for 'no'")));
 
-else {
-  confirm("Please select at least one character type");
-  checkPass(); // Call function here to restart
-}
+  if (sChar == true || nChar == true || lChar == true || uChar == true) {
+    if (sChar == true) { genChars += specialChars }
+    if (nChar == true) { genChars += numericChars }
+    if (lChar == true) { genChars += lowerCasedChars }
+    if (uChar == true) { genChars += upperCasedChars }
+    return genChars;
+  }
 
-console.log(genChars);
-//check
-
-/// Step 3 - PRODUCE PASSWOORD BELOW
-
-var passLength = checkPass();
-var charOptions = genChars;
-var password = "";
-
-
-for (let i = 0; i <= passLength; i++) {
-  var randomNum = Math.floor(Math.random() * charOptions.length);
-  password += charOptions.slice(randomNum, randomNum + 1);
+  else if (sChar == false && nChar == false && lChar == false && uChar == false) {
+    confirm("Please select at least one character type");
+    return checkChars();
+  }
 }
 
 
-console.log(`Your password is ${password}`);
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// STEP 4 -- Write password to the #password input
+
+// STEP 3 -- Write password to the #password input
 
 function writePassword() {
-  // HINT --> you're going to need to return something out of the generate password function
+  /// PRODUCE PASSWORD BELOW
+  var passLength = checkPass();
+  var charOptions = checkChars();
+
+  var password = "";
+
+  console.log(charOptions);
+  //check
+
+  for (let i = 0; i <= passLength; i++) {
+    var randomNum = Math.floor(Math.random() * charOptions.length);
+    password += charOptions.slice(randomNum, randomNum + 1);
+  }
+
+
+  console.log(`Your password is ${password}`);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -97,7 +98,7 @@ function writePassword() {
 
 const generateBtn = document.getElementById("generate");
 
-alert(`Your password is ready! Click "generate password!" to view your secure password`)
+
 
 generateBtn.addEventListener("click", writePassword);
 
